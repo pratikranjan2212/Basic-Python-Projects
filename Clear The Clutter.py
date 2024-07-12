@@ -1,18 +1,30 @@
 import os
-files = os.listdir()
+
+def CreateFolder(folderName, basePath=''):
+    # Construct the full path to the folder
+    fullPath = os.path.join(basePath, folderName)
+    
+    try:
+        if not os.path.exists(fullPath):
+            os.makedirs(fullPath)
+            print(f"{folderName} Folder Created at {fullPath}")
+        else:
+            print(f"{folderName} Folder already exists at {fullPath}.")
+    except Exception as e:
+        print(f"Error creating {folderName} Folder at {fullPath}: {e}")
+
+# Specify the base path where the folders should be created
+basePath = r'C:\Users\priti\OneDrive\Desktop\cluttered'
+
+# List files in the base path
+files = os.listdir(basePath)
 print(files)
 
-def CreateFolder(folderName):
-    try:
-        os.mkdir(folderName)
-    except FileExistsError:
-        print("Folder already exists")
-
-CreateFolder('Images')
-CreateFolder('Documents')
-CreateFolder('Media')
-CreateFolder('Softwares')
-CreateFolder('Others')
+CreateFolder('Images', basePath)
+CreateFolder('Documents', basePath)
+CreateFolder('Media', basePath)
+CreateFolder('Softwares', basePath)
+CreateFolder('Others', basePath)
 
 ImgExt = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg']
 DocExt = ['.txt', '.doc', '.docx', '.pdf', '.xls', '.xlsx', '.ppt', '.pptx']
@@ -21,23 +33,22 @@ SoftExt = ['.exe', '.msi']
 
 def MoveFiles():
     for file in files:
-        if os.path.splitext(file)[1] in ImgExt and os.path.isfile(file):
-            os.replace(file, f"Images/{file}")
+        if os.path.splitext(file)[1].lower() in ImgExt and os.path.isfile(os.path.join(basePath, file)):
+            os.replace(os.path.join(basePath, file), os.path.join(basePath, "Images", file))
         
-        elif os.path.splitext(file)[1] in DocExt and os.path.isfile(file):
-            os.replace(file, f"Documents/{file}")
+        elif os.path.splitext(file)[1].lower() in DocExt and os.path.isfile(os.path.join(basePath, file)):
+            os.replace(os.path.join(basePath, file), os.path.join(basePath, "Documents", file))
 
-        elif os.path.splitext(file)[1] in MedExt and os.path.isfile(file):
-            os.replace(file, f"Media/{file}")
+        elif os.path.splitext(file)[1].lower() in MedExt and os.path.isfile(os.path.join(basePath, file)):
+            os.replace(os.path.join(basePath, file), os.path.join(basePath, "Media", file))
 
-        elif os.path.splitext(file)[1] in SoftExt and os.path.isfile(file):
-            os.replace(file, f"Softwares/{file}")
+        elif os.path.splitext(file)[1].lower() in SoftExt and os.path.isfile(os.path.join(basePath, file)):
+            os.replace(os.path.join(basePath, file), os.path.join(basePath, "Softwares", file))
 
         else:
-            if os.path.isfile(file):
-                os.replace(file, f"Others/{file}")
+            if os.path.isfile(os.path.join(basePath, file)):
+                os.replace(os.path.join(basePath, file), os.path.join(basePath, "Others", file))
 
-            else:
-                pass
+    print("Files Moved Successfully!") 
 
 MoveFiles()
