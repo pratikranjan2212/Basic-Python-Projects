@@ -1,3 +1,5 @@
+# This script merges all the PDF files in the current directory into a single PDF file.
+
 from PyPDF2 import PdfWriter
 import os
 

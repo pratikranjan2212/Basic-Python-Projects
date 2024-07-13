@@ -1,3 +1,10 @@
+# This is a simple implementation of the game Kaun Banega Crorepati (KBC) in Python.
+
+# The game has 16 questions with 4 options each. The player has to choose the correct option to win points.
+
+# The player can quit the game at any time by pressing Q.
+
+# Created a list of questions, options, answers, and levels.
 questions=[
     "Which language was used to develop Facebook?",
     "What is the capital of France?",
@@ -93,6 +100,7 @@ levels=[
 
 points=0
 
+# Loop through the questions
 for i in range(0,len(questions)):
     ques=questions[i]
     print(f"Question for {levels[i]} points:", ques)

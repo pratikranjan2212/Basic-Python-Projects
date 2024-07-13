@@ -1,5 +1,6 @@
 #Currency Converter
 
+#Created a list to store the available currencies
 currencies = [
     "United States Dollar (USD)",
     "Euro (EUR)",
@@ -18,6 +19,7 @@ currencies = [
     "South African Rand (ZAR)"
 ]
 
+#Created a dictionary to store the currency conversion rates
 CurrencyDict = {
     "USD": 74.50,
     "EUR": 88.20,
@@ -36,6 +38,7 @@ CurrencyDict = {
     "ZAR": 5.20
 }
 
+#Function to convert currency
 def CurrencyConverter():
     print("Welcome to the Currency Converter!")
     print("Here are the available currencies:")

@@ -1,3 +1,5 @@
+# This is a simple library management system that allows you to add books to the library, check if the library has all the books, and show all the books in the library.
+
 class Library:
   def __init__(self):
     self.no_of_books = 0

@@ -1,4 +1,4 @@
-#Rename bulk PDFs
+# This script is used to rename all the files in a folder to a number. This is useful when you have a cluttered folder and you want to rename all the files to a number.
 
 import os
 

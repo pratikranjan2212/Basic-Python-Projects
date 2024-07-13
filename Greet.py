@@ -1,7 +1,11 @@
 import time
+
+# Get the current time
 timestamp=time.strftime('%H:%M:%S')
 times = time.strftime('%I:%M %p')
 name=input('Enter your name: ')
+
+# Function to greet the user based on the time of the day
 def Greet():
     if timestamp < '12:00:00':
         print(f'Good Morning, {name}! It is currently {times}')

@@ -20,17 +20,20 @@ basePath = r'C:\Users\priti\OneDrive\Desktop\cluttered'
 files = os.listdir(basePath)
 print(files)
 
+# Create the folders
 CreateFolder('Images', basePath)
 CreateFolder('Documents', basePath)
 CreateFolder('Media', basePath)
 CreateFolder('Softwares', basePath)
 CreateFolder('Others', basePath)
 
+# Define the file extensions for each category
 ImgExt = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg']
 DocExt = ['.txt', '.doc', '.docx', '.pdf', '.xls', '.xlsx', '.ppt', '.pptx']
 MedExt = ['.mp4', '.mkv', '.mov', '.avi', '.flv', '.wmv', '.webm','.mp3', '.wav', '.aac', '.flac']
 SoftExt = ['.exe', '.msi']
 
+# Move files to their respective folders
 def MoveFiles():
     for file in files:
         if os.path.splitext(file)[1].lower() in ImgExt and os.path.isfile(os.path.join(basePath, file)):

@@ -2,10 +2,13 @@ import pyttsx3
 from plyer import notification
 import time
 
+# Initialize the Text-to-Speech engine
 engine=pyttsx3.init()
+
+# Function to remind the user to drink water
 def drink_water_reminder():
     while True:
-        # Display a notification to drink water
+        # Display a notification
         notification.notify(
             title = "Please Drink Water Now",
             message = "Drinking water is essential to keep your body hydrated and healthy. Please drink water now.",
